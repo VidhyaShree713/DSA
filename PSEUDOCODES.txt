@@ -1,0 +1,69 @@
+PSEUDOCODES :
+1.	PSEUDOCODE :
+
+function twoSum(arr, target):
+    create empty map
+    for i from 0 to length of arr:
+        complement = target - arr[i]
+        if complement in map:
+            return [map[complement], i]
+        map[arr[i]] = I
+
+2. PSEUDOCODE :
+
+function binarySearch(arr, target):
+    low = 0
+    high = length(arr) - 1
+    while low <= high:
+        mid = (low + high) / 2
+        if arr[mid] == target:
+            return mid
+        else if arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+
+3. PSEUDOCODE :
+
+function isAnagram(s1, s2):
+    if length(s1) != length(s2):
+        return false
+    create frequency array of size 256 for both strings
+    for each character in s1:
+        increment its count in freq1
+    for each character in s2:
+        increment its count in freq2
+    if freq1 equals freq2:
+        return true
+    else:
+        return false
+
+4. PSEUDOCODE :
+
+function lengthOfLongestSubstring(s):
+    create visited[256] = {0}
+    left = 0
+    maxLen = 0
+    for right from 0 to len(s):
+        while visited[s[right]] == 1:
+            visited[s[left]] = 0
+            left++
+        visited[s[right]] = 1
+        maxLen = max(maxLen, right - left + 1)
+    return maxLen
+
+5. PSEUDOCODE :
+
+function countPalindromicSubstrings(s):
+    count = 0
+    for i from 0 to len(s)-1:
+        expandAroundCenter(s, i, i)     // odd
+        expandAroundCenter(s, i, i + 1) // even
+
+function expandAroundCenter(s, left, right):
+    while left >= 0 and right < len(s) and s[left] == s[right]:
+        count++
+        left--
+        right++
+
